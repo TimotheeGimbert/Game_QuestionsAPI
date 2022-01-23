@@ -8,3 +8,7 @@ body {
 main {
   border-radius: 30px;
 }
+
+.btn {
+  border-radius: 11px;
+}

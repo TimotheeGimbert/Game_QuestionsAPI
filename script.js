@@ -22,8 +22,26 @@ const getQuestions = async () => {
 }
 
 const showQuestion = (questionsList, qIndex) => {
-  document.querySelector('#qIndex').innerHTML = `Q ${qIndex}/10`;
-  document.querySelector('#question').innerHTML = questionsList[qIndex-1].question;
+  document.querySelector('main').innerHTML = `
+    <div class="row m-5 bg-dark text-light">
+      <div id="qIndex" class="col m-3">Q ${qIndex}/10</div>
+    </div>
+    <div class="row my-5 p-5 text-center bg-warning">
+      <h3 id="question">${questionsList[qIndex-1].question}</h3>
+    </div>
+    <div class="row m-5 py-5 text-center justify-content-center">
+      <button id="true" class="col-2 mx-4 p-2 btn btn-success">True</button>
+      <button id="false" class="col-2 mx-4 p-2 btn btn-danger">False</button>
+    </div>
+  `;
+  createListener(questionsList, qIndex);
+}
+
+const createListener = (questionsList, qindex) => {
+  document.querySelector('#true').addEventListener('click', () => {
+    console.log('click');
+    showQuestion(questionsList, qindex+1)
+  });
 }
 
 getQuestions();
