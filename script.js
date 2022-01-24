@@ -27,7 +27,7 @@ const showQuestions = (questions, qIndex) => {
       <button id="false" class="col-2 mx-4 p-2 btn btn-danger">False</button>
     </div>
   `;
-
+  animationIn();
   createListener(questions, qIndex);
 }
 
@@ -56,3 +56,25 @@ const game = async () => {
 
 let score = 0;
 game();
+
+
+
+const animationOut = () => {
+  window.anime({
+    targets: 'main',
+    translateX: [0, -2000],
+    duration: 4000,
+    easing: 'easeOutElastic',
+    elasticity: 100,
+  });
+}
+
+const animationIn = () => {
+  window.anime({
+    targets: 'main',
+    translateX: [1000, 0],
+    duration: 3000,
+    easing: 'easeOutElastic',
+    elasticity: 50,
+  });
+}
