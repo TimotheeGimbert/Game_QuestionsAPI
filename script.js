@@ -32,7 +32,10 @@ const showQuestions = (questions, qIndex) => {
 }
 
 const createListener = (questions, qIndex) => {
-  if (qIndex+1 > 10) return;
+  if (qIndex+1 > 10) {
+    document.querySelectorAll('button').forEach(button => button.style.display = 'none');
+    return;
+  }
   document.querySelector('#true').addEventListener('click', () => {
     if (questions[qIndex].correct_answer === 'True') score += 1;
     console.log('SCORE: ' + score);
